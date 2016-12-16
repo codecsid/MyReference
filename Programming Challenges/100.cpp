@@ -8,10 +8,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define MAX 99999
+#define MAX 10
 #define INF 0x3f3f3f3f
-#define FOR(i, a, b) for(int i = a;i < b;i++)
-#define FOR(i, a) for(int i = 0;i < a;i++)
+//#define FOR(i, a, b) for(int i = a;i < b;i++)
+//#define FOR(i, a) for(int i = 0;i < a;i++)
 
 typedef long long ll;
 typedef vector<int> vi;
@@ -49,16 +49,23 @@ int func(int arr[], int x)
 
 int main(void)
 {
-    int arr[100000];
+    int arr[MAX + 1];
     memset(arr, -1, sizeof(arr));
     arr[1] = 1;
     arr[2] = 2;
-    int val = 0;
     for(int i = MAX;i >= 3;--i)
     {
         if(arr[i] < 0)
         arr[i] = func(arr, i);
-        cout << arr[i] << " ";
+        cout << arr[i] << endl;
     }
-    cout << val << endl;
+    int i, j, max = 0;
+    cin >> i >> j;
+    cout << i << " " << j << " ";
+    for(int x = i;x <= j;++x)
+    {
+        if(arr[x] > max)
+            max = arr[x];
+    }
+    cout << max << endl;
 }
